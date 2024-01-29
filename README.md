@@ -3,7 +3,7 @@
 ## Linux:
 Перейдите на официальный сайт Git git-scm.com и скачайте последнюю версию установщика для Windows. Нажмите на кнопку "Download" для загрузки.
 1. ```git clone https://github.com/skhrapkoa/new_scrapper.git```
-2. ```cd local_scraper ```
+2. ```cd new_scrapper ```
 3. ```python3 -m venv venv```
 4. ```source venv/bin/activate```
 5. ```pip install -r requirements.txt```
