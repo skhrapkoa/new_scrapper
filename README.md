@@ -1,6 +1,7 @@
 # Инструкция по установке
 
 ## Linux:
+Перейдите на официальный сайт Git git-scm.com и скачайте последнюю версию установщика для Windows. Нажмите на кнопку "Download" для загрузки.
 1. ```git clone git@github.com:Borcheg1/local_scraper.git```
 2. ```cd local_scraper ```
 3. ```python3 -m venv venv```
