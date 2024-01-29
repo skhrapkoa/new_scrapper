@@ -10,15 +10,22 @@ from selenium.webdriver.chrome.service import Service
 
 
 if __name__ == '__main__':
+    print(1)
     options = Options()
+    print(2)
     service = ParseService()
+    print(3)
     google_sheet = GoogleSheet(settings.GOOGLE_SHEET_URL, settings.SHEET_START_COL)
+    print(4)
 
     options.add_experimental_option("debuggerAddress", "localhost:9222")
+    print(5)
     service_selenium = Service('chromedriver.exe')
-
+    print(6)
     driver = webdriver.Chrome(options=options, service=service_selenium)
+    print(7)
     action = ActionChains(driver)
+    print(8)
 
     while True:
         url = input('Введите linkedin url или нажмите Ctrl+C для выхода из программы:\n')
