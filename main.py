@@ -6,6 +6,7 @@ from conf import settings
 from services.crawler import LinkedinParser
 from services.google_sheet_service import GoogleSheet
 from services.parse_service import ParseService
+from selenium.webdriver.chrome.service import Service
 
 
 if __name__ == '__main__':
@@ -14,7 +15,9 @@ if __name__ == '__main__':
     google_sheet = GoogleSheet(settings.GOOGLE_SHEET_URL, settings.SHEET_START_COL)
 
     options.add_experimental_option("debuggerAddress", "localhost:9222")
-    driver = webdriver.Chrome(options=options)
+    service_selenium = Service('chromedriver.exe')
+
+    driver = webdriver.Chrome(options=options, service=service_selenium)
     action = ActionChains(driver)
 
     while True:
