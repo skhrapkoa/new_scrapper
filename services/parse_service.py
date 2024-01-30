@@ -40,5 +40,5 @@ class ParseService:
     @staticmethod
     def concat_url(url: str) -> str:
         if "company" in url:
-            return f"{url}posts/?feedView=all"
-        return f"{url}recent-activity/all/"
+            return f"{url}/posts/?feedView=all"
+        return f"{url}/recent-activity/all/"
