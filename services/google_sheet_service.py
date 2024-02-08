@@ -46,14 +46,23 @@ class GoogleSheet:
             self.update_cell(row_data, key, ws, last_row, offset)
             offset += 1
 
+    def append_to_column_gpt_data(self, sheet_name: str, text: str, name: str):
+        wb = self.client.open_by_url(self.table_url)
+        ws = wb.worksheet(sheet_name)
+
+        col_values = ws.col_values(self.start_col)
+        last_row = len(col_values) + 1
+        col = int(self.start_col)
+
+        self.update_gpt_cell(data=text, ws=ws, last_row=last_row, col=col)
+        self.update_gpt_cell(data=name, ws=ws, last_row=last_row, col=col - 1)
+
+    @staticmethod
+    def update_gpt_cell(data: str, ws: Worksheet, last_row: int, col: int):
+        ws.update_cell(last_row, col, data)
+
     @staticmethod
     def update_cell(data_dict: dict[str, list], key: str, ws: Worksheet, last_row: int, offset: int):
         for data in data_dict[key]:
             ws.update_cell(last_row, offset, data)
             last_row += 1
-
-    def append_data(self, sheet_name: str, method_name: str, **kwargs):
-        method = getattr(self, method_name)
-        if not callable(method):
-            raise ValueError(f"Method {method_name} not found in GoogleSheet class or it's not callable.")
-        method(sheet_name, **kwargs)
