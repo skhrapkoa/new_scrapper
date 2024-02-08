@@ -42,3 +42,7 @@ class ParseService:
         if "company" in url:
             return f"{url}/posts/?feedView=all"
         return f"{url}/recent-activity/all/"
+
+    @staticmethod
+    def get_name_from_url(url: str) -> str:
+        return url.strip("/").split("/")[-1]
